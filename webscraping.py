@@ -2,15 +2,15 @@
 # import functions_framework
 # import requests
 # from bs4 import BeautifulSoup
-# import firebase_admin
-# from firebase_admin import credentials
-# from firebase_admin import firestore
 
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import firestore
 import requests
 from bs4 import BeautifulSoup
-import functions_framework
 
-@functions_framework.http
+
+
 def scraping_yahoo(request):
     url = 'https://search.yahoo.co.jp/realtime'
 
@@ -32,5 +32,11 @@ def scraping_yahoo(request):
             yahoo_trend_dict[count] = trend_name
             count += 1
 
-    result = "\n".join([f'{key}: {value}' for key, value in yahoo_trend_dict.items()])
-    return result
+    # result = "\n".join([f'{key}: {value}' for key, value in yahoo_trend_dict.items()])
+    # print(result)
+    return yahoo_trend_dict
+
+
+
+
+
